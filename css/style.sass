@@ -37,6 +37,10 @@ body
 	-webkit-box-shadow: 1px 15px 17px -1px rgba(0,0,0,0.75)
 	-moz-box-shadow: 1px 15px 17px -1px rgba(0,0,0,0.75)
 	box-shadow: 1px 15px 17px -1px rgba(0,0,0,0.75)
+.material-icons.media
+	color: #FB8C00
+	@media screen and (max-width: 800px)
+		font-size: 40px
 form.signin
 	width: 50%
 	margin:auto
@@ -89,7 +93,9 @@ nav.menu
 	color: #FFFFFF
 	cursor: pointer
 	.uno
-		
+		@media screen and (max-width: 800px)
+			p
+				display: none
 		width: 35%
 		float: left		
 		height: 150px
@@ -105,6 +111,9 @@ nav.menu
 		td
 			padding-left: 10px
 	.dos
+		@media screen and (max-width: 800px)
+			p
+				display: none
 		width: 30%
 		margin: auto		
 		height: 150px
@@ -114,6 +123,11 @@ nav.menu
 		p
 			margin-right: 10px
 	.tres
+		.material-icons.orange600 
+			color: #FB8C00
+		@media screen and (max-width: 800px)
+			p
+				display: none			
 		width: 35%
 		float: right		
 		height: 150px
