@@ -101,7 +101,7 @@
 		
 ?>
 		</div>
-		<div class="footer">
+		<footer>
 			<div class="uno">
 				<table>
 					<tr>
@@ -129,6 +129,6 @@
 				</tr>
 			</table></div>
 		</div>
-	</div>
+	</footer>
 </body>
 </html>

@@ -11,9 +11,11 @@ body
 	font-family:$fuente
 	padding-top: 20px
 	background: #FFFFFF
+	padding-bottom: 0
 .contenedor
 	width:100%
 	margin-top:-20px
+	min-height:100%
 	div
 		display: block
 .top
@@ -42,8 +44,6 @@ body
 		font-size: 70px
 		margin-left:20px
 		margin-top: -19px
-	@media screen and (max-width: 400px)
-		
 form.signin
 	width: 50%
 	margin:auto
@@ -80,11 +80,13 @@ form.signin
 	div
 		display: block
 
-.footer
+footer
 	@media screen and (max-width: 800px )
 		padding-bottom:0
 	background: #044772
 	z-index: -1
+	postition: absolute
+	bottom: 0px
 	font-size: 18px
 	color: #FFFFFF
 	cursor: pointer
