@@ -26,6 +26,80 @@
 					<input type="submit" name="entrar" value="Sign in">
 				</div>
 			</form>
+			<?php
+
+		$servidor = "localhost";
+		$usuario = "root";
+		$contra = "";
+		$dbNom = "dbprotocolo";
+		
+		if (isset($_POST['usu'])) {
+			if (isset($_POST['contra'])) {
+			$logUsu = $_POST['usu'];
+		$logContra = $_POST['contra'];
+
+		//Crear conexión
+		$conn = mysqli_connect($servidor, $usuario, $contra, $dbNom);
+
+
+
+		// Revisar Conexión
+		if (!$conn) {
+		    die("Conexión fallida: " . mysqli_connect_error());
+		}
+
+		$sql = "SELECT Carne from usuario where Carne=$logUsu";
+		$consulta = mysqli_query($conn, $sql);
+
+		if (!$consulta){
+			mysqli_close($conn);
+			echo "<label class='error'>Por favor compruebe que su usuario sea correcto.</label>";
+			return;
+		}
+
+		$user='';
+
+		while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
+			$user = $row['Carne'];
+		}
+
+		
+
+
+		$sql = "SELECT Contrasena from usuario where Carne=$logUsu";
+		$consulta = mysqli_query($conn, $sql);
+
+		$clave='';
+
+		while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
+			$clave = $row['Contrasena'];
+		}
+
+		if ($clave!=$logContra){
+			mysqli_close($conn);
+			echo "<label class='error'>Por favor compruebe que su contraseña sea correcta.</label>";
+			return;
+		}
+
+		session_start();
+
+			$_SESSION["nuevasesion"]= "Logeado";
+			$_SESSION["usuario"]= $user;
+
+				if(isset($conn)){
+				mysqli_close($conn);
+			}
+
+		
+
+		if (@$_SESSION['nuevasesion'] == "Logeado") {
+			echo "Usuario: ".$_SESSION['usuario'];
+		}
+
+		}
+		}
+		
+?>
 		</div>
 		<div class="footer">
 			<div class="uno">

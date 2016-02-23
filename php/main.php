@@ -10,23 +10,15 @@
 <body>
 	<div class="contenedor">
 		<nav class="menu">
-			<div class="core">
-				<div class="calendar">
-					<i class="material-icons md-36">event</i>
-				</div>
-				<div class="add">
-					<i class="material-icons">alarm_add</i
-				</div>
-				<div class="assign">
-					<i class="material-icons">assignment</i>
-				</div>
-				<div class="manage">
-					<i class="material-icons">build</i>
-				</div>
-				<div class="profile">
-					<i class="material-icons">account_circle</i>
-				</div>
-			</div>	
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
 		</nav>
 	</div>
 </body>
