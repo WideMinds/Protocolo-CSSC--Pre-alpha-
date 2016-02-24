@@ -9,29 +9,41 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
+
 	<div class="contenedor">
 		<div class="top">
 			<img src="img/escudo_amarillo.png" class="escudo">
 			<p>Procotolo CSSC 2016</p>
 		</div>
 		<div class="bott">
-			<form class="signin" action="" method="post">
+			<form class="signin" action="index.php" method="post">
 				<div class="group">
-					<input type="text" name="correo" placeholder="Usuario">
+					<input type="text" name="usu" placeholder="Carné" required>
 				</div>
 				<div class="group">
-					<input type="password" name="contra" placeholder="Contraseña">
+					<input type="password" name="contra" placeholder="Contraseña" required>
 				</div>
 				<div class="group">
-					<input type="submit" name="entrar" value="Sign in">
+					<input type="submit" name="entrar" value="Entrar">
 				</div>
 			</form>
-			<?php
+<?php
+		//----------------------------------
+		try{
+		$datosConn = file("php/conn.txt");
 
-		$servidor = "localhost";
-		$usuario = "root";
-		$contra = "";
-		$dbNom = "dbprotocolo";
+		$servidor = rtrim($datosConn[0]);
+		$usuario = rtrim($datosConn[1]);
+		$contra = rtrim($datosConn[2]);
+		$dbNom = rtrim($datosConn[3]);
+			if ($datosConn===false){
+				throw new Exception();
+			}
+		}
+		catch (Exception $e) {
+			die();
+		}
+		//----------------------------------
 		
 		if (isset($_POST['usu'])) {
 			if (isset($_POST['contra'])) {
@@ -63,9 +75,44 @@
 			$user = $row['Carne'];
 		}
 
+
+		//si no funciona en una tabla comprueba en la otra.
+		if ($user == "") {
+			$sql = "SELECT NombreUsuario from asesor where NombreUsuario=$logUsu";
+			$consulta = mysqli_query($conn, $sql);
+
+		if (!$consulta){
+			mysqli_close($conn);
+			echo "<label class='error'>Por favor compruebe que su usuario sea correcto.</label>";
+			return;
+		}
+
+		$user='';
+
+		while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
+			$user = $row['NombreUsuario'];
+		}
+		}
 		
+//si no funciona en otra tabla comprueba en la última.
+		if ($user == "") {
+			$sql = "SELECT NombreUsuario from admin where NombreUsuario=$logUsu";
+			$consulta = mysqli_query($conn, $sql);
 
+		if (!$consulta){
+			mysqli_close($conn);
+			echo "<label class='error'>Por favor compruebe que su usuario sea correcto.</label>";
+			return;
+		}
 
+		$user='';
+
+		while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
+			$user = $row['NombreUsuario'];
+		}
+		}
+		
+		
 		$sql = "SELECT Contrasena from usuario where Carne=$logUsu";
 		$consulta = mysqli_query($conn, $sql);
 
@@ -73,7 +120,38 @@
 
 		while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
 			$clave = $row['Contrasena'];
+			$tipo= "Estudiante";
 		}
+		
+
+
+//si falla comprueba en la otra tabla
+		if ($clave == "") {
+			$sql = "SELECT Contrasena from asesor where NombreUsuario=$logUsu";
+			$consulta = mysqli_query($conn, $sql);
+
+		$clave='';
+
+		while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
+			$clave = $row['Contrasena'];
+			$tipo= "Asesor";
+		}
+		}
+
+//si falla comprueba en la última tabla
+		if ($clave == "") {
+			$sql = "SELECT Contrasena from admin where NombreUsuario=$logUsu";
+			$consulta = mysqli_query($conn, $sql);
+
+		$clave='';
+
+		while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
+			$clave = $row['Contrasena'];
+			$tipo= "Administrador";
+		}
+		}
+
+
 
 		if ($clave!=$logContra){
 			mysqli_close($conn);
@@ -85,6 +163,7 @@
 
 			$_SESSION["nuevasesion"]= "Logeado";
 			$_SESSION["usuario"]= $user;
+			$_SESSION["tipoUsu"]= $tipo;
 
 				if(isset($conn)){
 				mysqli_close($conn);
@@ -93,7 +172,8 @@
 		
 
 		if (@$_SESSION['nuevasesion'] == "Logeado") {
-			echo "Usuario: ".$_SESSION['usuario'];
+			echo "Usuario: ".$_SESSION['usuario']."<br>";
+			echo "Tipo de usuario: ".$_SESSION['tipoUsu'];
 		}
 
 		}
