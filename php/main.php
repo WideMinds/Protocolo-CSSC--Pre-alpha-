@@ -8,25 +8,19 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-<nav>
-      	<div class="li-group">
-      	<table>
-      	<tr>
-      		<td><img src="../img/Logo Protocolo.png" id="menui"></td>
-      		<td>
-        	<ul>
-				<a href="addMem.php"><li>Agregar miembro<i class="material-icons nav">face</i></li></a>
-				<li>Agregar eventos<i class="material-icons nav">event</i></li>
-				<li>Asignar actividades<i class="material-icons nav">assignment_ind</i></li>
-				<li>Calendario<i class="material-icons nav">alarm_on</i></li>
-				<li>Reportes<i class="material-icons nav">print</i></li>
-				<li>Cerrar sesión<i class="material-icons nav">power_settings_new</i></li>      
-        	</ul>
-        	</td>
-      	</tr>
-      </table>
-      </div>
-    </nav>
-
+  <div class="container">   
+      <nav>
+        <a href="../index.php"><i class="material-icons">home</i></a>
+        <a href="addMem.php"><i class="material-icons nav">face</i></a>
+        <a href="addEve.php"><i class="material-icons nav">event</i></a>
+        <a href="AsnAct.php"><i class="material-icons nav">assignment_ind</i></a>
+        <a href="calendar.php"><i class="material-icons nav">alarm_on</i></a>
+        <a href="Report.php"><i class="material-icons nav">print</i></a>
+        <a href=""><i class="material-icons nav">power_settings_new</i></a>
+      </nav>    
+    <div class="cal">
+      <h2>Aquí irá el calendario</h2>
+    </div>
+</div>  
 </body>
 </html>
