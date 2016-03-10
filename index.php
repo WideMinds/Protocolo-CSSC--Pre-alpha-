@@ -12,8 +12,8 @@
 
 	<div class="contenedor">
 		<div class="top">
-			<img src="img/escudo_amarillo.png" class="escudo">
-			<p>Procotolo CSSC 2016</p>
+			<img src="img/Logo Protocolo.png" class="escudo">
+			<p>Protocolo CSSC 2016</p>
 		</div>
 		<div class="bott">
 			<form class="signin" action="index.php" method="post">

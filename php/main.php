@@ -8,18 +8,25 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-	<div class="contenedor">
-		<nav class="menu">
-			<ul>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</nav>
-	</div>
+<nav>
+      	<div class="li-group">
+      	<table>
+      	<tr>
+      		<td><img src="../img/Logo Protocolo.png" id="menui"></td>
+      		<td>
+        	<ul>
+				<a href="addMem.php"><li>Agregar miembro<i class="material-icons nav">face</i></li></a>
+				<li>Agregar eventos<i class="material-icons nav">event</i></li>
+				<li>Asignar actividades<i class="material-icons nav">assignment_ind</i></li>
+				<li>Calendario<i class="material-icons nav">alarm_on</i></li>
+				<li>Reportes<i class="material-icons nav">print</i></li>
+				<li>Cerrar sesión<i class="material-icons nav">power_settings_new</i></li>      
+        	</ul>
+        	</td>
+      	</tr>
+      </table>
+      </div>
+    </nav>
+
 </body>
 </html>
