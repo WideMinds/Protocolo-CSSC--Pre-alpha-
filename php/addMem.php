@@ -4,84 +4,88 @@
 	<meta charset="UTF-8">
 	<title>Página principal</title>
 	<link rel="stylesheet" href="../css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-  <nav>
-  <div class="li-group">
-        <table>
-        <tr>
-            <td><img src="../img/Logo Protocolo.png" id="menui"></td>
-            <td>
-            <ul>
-                <li>Agregar miembro<i class="material-icons nav">face</i></li>
-                <li>Agregar eventos<i class="material-icons nav">event</i></li>
-                <li>Asignar actividades<i class="material-icons nav">assignment_ind</i></li>
-                <li>Calendario<i class="material-icons nav">alarm_on</i></li>
-                <li>Reportes<i class="material-icons nav">print</i></li>
-                <li>Cerrar sesión<i class="material-icons nav">power_settings_new</i></li>      
-            </ul>
-            </td>
-        </tr>
-      </table>
-      </div>
-  </nav>
-<div class="contenedor-formulario">
-        <div class="wrap">
-            <form action="" class="formulario" name="formulario_registro" method="post">
-                <div>
-                <div class="input-group">
-                        <label class="label" for="cod">Código:</label>
-                        <input type="text" name="cod" id="codigo">
-                    </div>
-                    <div class="input-group">
-                        <label class="label" for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre">
-                    </div>
-                    <div class="input-group">
-                        <label class="label" for="ape">Apellido:</label>
-                        <input type="text" name="ape" id="apelido">
-                    </div>
-                    <div class="input-group">
-                        <label class="label" for="pass">Contraseña:</label>
-                        <input type="password" name="password" id="pass">
-                    </div>
-                    <div class="input-group">
-                        <label class="label" for="pass2">Grado:</label>
-                        <select name="grado" id="grado">
-                            <option value="Séptimo">Séptimo</option>
-                            <option value="Octavo">Octavo</option>
-                            <option value="Noveno">Noveno</option>
-                            <option value="Primer año">Primer año</option>
-                            <option value="Segundo año">Segundo año</option>
-                            <option value="Tercer año">Tercer año</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                    <label for="secc">Sección:</label>
-                    <select name="secc" id="secc">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                    </select>
-                    </div>
-                    <div class="input-group">
-                        <label class="label" for="hor">Horario:</label><br>
-                        <input type="text" name="inicio" class="hora" style="width:30%"><span><i class="material-icons">alarm_on</i></span>
-                        <input type="text" name="final" style="margin-left:40px;width:30%"><span class="fin"><i class="material-icons">alarm_on</i></span>
-                    </div>
-                    <div class="input-group">
-                        <label for="act">Actividad:</label>
-                        <!-- Esto tiene que ir con php y que weba -->
-                    </div>
-                    <input type="submit" id="btn-submit" value="Enviar">
-                </div>  
-            </form>
-        </div>
+  <div class="container-main">   
+      <nav>
+        <a href=""><div class="group">
+            <i class="material-icons nav">view_headline</i>
+        </div></a>
+        <a href="../index.php"><div class="group">
+            <i class="material-icons nav">home</i>
+        </div></a>
+        <a href="addMem.php"><div class="group" title="Añadir usuarios">
+            <i class="material-icons nav">face</i>
+        </div></a>
+        <a href="addEve.php"><div class="group" title="Añadir evento">
+            <i class="material-icons nav">event</i>
+        </div></a>
+        <a href="AsnAct.php"><div class="group" title="Asignar actividades">
+            <i class="material-icons nav">assignment_ind</i>
+        </div></a>
+        <a href="calendar.php"><div class="group" title="Ver calendario">
+            <i class="material-icons nav">alarm_on</i>
+        </div></a>
+        <a href="Report.php"><div class="group" title="Ver reportes">
+            <i class="material-icons nav">print</i>
+        </div></a>
+        <a href=""><div class="group">
+            <i class="material-icons nav">power_settings_new</i>
+        </div></a>
+      </nav>    
+    <div class="cal">
+        <form action="" method="post" class="formulario">
+            <div class="group form">
+                <label>Carné</label>
+                <input type="text" name="cod">
+            </div>
+            <div class="group form">
+                <label>Nombre:</label>
+                <input type="text" name="nom">
+            </div>
+            <div class="group form">
+                <label>Contraseña:</label>
+                <input type="password" name="pass">
+            </div>
+            <div class="group form">
+                <label>Grado:</label>
+                <select name="grado">
+                    <option value="Séptimo">Séptimo grado</option>
+                    <option value="Octavo">Octavo grado</option>
+                    <option value="Noveno">Noveno grado</option>
+                    <option value="Primer año">Primer año</option>
+                    <option value="Segundo año">Segundo año</option>
+                    <option value="Tercer año">Tercer año</option>
+                </select>
+            </div>
+            <div class="group form">
+                <label>Sección:</label>
+                <select name="seccion" id="">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="group form">
+                <label>Cargo:</label>
+                <select name="cargo" id="">
+                    <option value="Coordinador">Coordinador</option>
+                    <option value="Sub-coordinador">Sub-coordinador</option>
+                    <option value="Miembro">Miembro</option>
+                </select>
+            </div>
+            <div class="group form">
+                <input type="submit" name="add" value="Agregar">
+            </div>
+        </form>   
     </div>
-    <footer>
+
+</div>
+    <!-- <footer>
         <div class="uno">
             <table>
                 <tr>
@@ -109,6 +113,6 @@
             </tr>
         </table></div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>
